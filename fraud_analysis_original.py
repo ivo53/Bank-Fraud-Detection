@@ -1,20 +1,12 @@
 import numpy as np
 import matplotlib.pyplot as plt
-
 import csv
-
-import pandas as pd
-
-import seaborn as sb
-
 from imblearn.over_sampling import SMOTE
 from imblearn.combine import SMOTETomek
 from imblearn.combine import SMOTEENN
 from imblearn.under_sampling import CondensedNearestNeighbour
 from imblearn.over_sampling import ADASYN
-
 from sklearn.decomposition import PCA
-
 from sklearn.linear_model import LogisticRegression as LR
 from sklearn.ensemble import RandomForestClassifier as RF
 from sklearn.linear_model import SGDClassifier as SGD
@@ -297,6 +289,8 @@ print('Confusion matrix on PCA data (LogR):\n', confusion_matrix(pca_test_class,
 
 print('Applying Random Forest Model...')
 '''
+Random Forest model did not obtain better confusion matrix scores than Logistic Regression
+
 rf = RF(n_estimators=15, criterion='gini', class_weight={0:20, 1:1}).fit(train_data, train_class)
 
 predictionsRF = rf.predict(test_data.reshape(-1, 30))
